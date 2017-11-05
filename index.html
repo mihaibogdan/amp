@@ -124,6 +124,10 @@
             padding-bottom: 50px;
         }
 
+        .main-pic {
+            width: 100%;
+        }
+
         h3 {
             color: rgba(0,0,0,0.8);
             font-family: "Source Sans Pro",sans-serif;
@@ -183,6 +187,11 @@
             font-size: 1rem;
         }
 
+        h4 {
+            font-size: 1.2rem;
+            font-weight: normal;
+        }
+
         input#destination {
             background-image: none, url('./assets/img/pin.svg');
             background-repeat: no-repeat;
@@ -220,8 +229,163 @@
             padding: 0 0.875rem;
         }
 
+        .nearby-hotels {
+            width: 100%;
+            background-color: #fefefe;
+            padding: 1rem 0 0;
+            border: 1px solid #d9d9d9;
+            box-shadow: 0 0 1.2rem rgba(0,0,0,0.18);
+            color: #163f5e;
+            margin-top: 20px;
+        }
+
+        .nearby-hotels h4{
+            padding: 0 0.9375rem;
+        }
+
+        .hotel {
+            display: flex;
+            position: relative;
+            padding: 30px 0.9375rem;
+
+            border-top: 0.0625rem solid #cacaca;
+        }
+
+        .hotel .description {
+            display: flex;
+        }
+
+        .hotel .pic {
+            border-radius: 2px;
+            z-index: 1;
+        }
+        .hotel .ranking {
+            position: absolute;
+            top: 20px;
+            left: 16px;
+            padding: 5px 0;
+            min-width: 23px;
+            font-size: 12px;
+            text-align: center;
+            color: #fff;
+            background-color: #3394de;
+            border: 2px solid #fff;
+            border-radius: 50%;
+            line-height: 1;
+            z-index: 2;
+        }
+
+        .hotel .info {
+            color: #8a8a8a;
+            margin-left: 0.5rem;
+            font-size: 0.85rem;
+            display: flex;
+            flex-direction: column;
+            line-height: 1.6;
+        }
+
+        .hotel .info h5 {
+            font-size: 1rem;
+            margin: 0;
+            color: #163f5e;
+        }
+        .hotel .info .stars {
+            display: flex;
+        }
+
+        .hotel .info .stars .ranking-status {
+            font-size: 0.9rem;
+        }
+
+        .hotel .info .stars .ranking-status:before {
+            content: '';
+            width: 1px;
+            height: 15px;
+            background-color: #ccc;
+            display: inline-block;
+            margin: 0 6px;
+        }
+
+        .hotel .info .stars .grade {
+            display: inline-block;
+            box-sizing: border-box;
+            width: 26px;
+            border-radius: 3px;
+            font-size: 0.8rem;
+            text-align: center;
+            margin-left: 0.1rem;
+            color: #ffffff;
+            font-weight: normal;
+            background-color: #73cf42;
+            margin-left: 6px;
+        }
+
+        .hotel .offer {
+            display: flex;
+            margin-left: auto;
+            box-shadow: 1px 1px 0 0 rgba(0,0,0,0.15);
+            background: #fff;
+            border: 1px solid #e6e6e6;
+            border-radius: 3px;
+            cursor: pointer;
+            height: 60px;
+
+            align-items: center;
+
+            width: 30%;
+        }
+
+        .hotel .offer amp-img {
+            margin-left: 0.5rem;
+            margin-right: auto;
+        }
+
+        .hotel .offer .price {
+            display: flex;
+            flex-direction: column;
+            margin: auto;
+        }
+
+        .hotel .offer .price .currency {
+            font-size: 0.65rem;
+            color: rgba(0,0,0,0.8);
+        }
+
+        .hotel .offer .price .value {
+            font-size: 1.3rem;
+            font-weight: bold;
+            line-height: 1.4rem;
+            color: rgba(0,0,0,0.8);
+        }
+
+        .hotel .offer .view{
+            margin-left: auto;
+            padding: 10px 0.4rem 0 0.7rem;
+            height: 100%;
+            border: 1px solid #ffb300;
+            border-color: #fc0 #e4a000 #e4a000 #fc0;
+            background-color: #fc0;
+            vertical-align: middle;
+            box-sizing: border-box;
+
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: rgba(0,0,0,0.8);
+        }
+
         @media screen and (max-width: 720px) {
             .container {
+                width: 100%;
+            }
+        }
+
+        @media screen and (max-width: 650px) {
+            .hotel {
+                flex-direction: column;
+            }
+
+            .hotel .offer {
+                margin-top: 5px;
                 width: 100%;
             }
         }
@@ -237,7 +401,7 @@
     <div class="container">
         <h3>Hotels & Vacation Rentals Near Liverpool Hope University From 50 USD</h3>
         <div class="panels">
-            <amp-img  layout="flex-item" height="200" src="./assets/img/liverpool.jpg"></amp-img>
+            <amp-img class="main-pic" layout="responsive" height="300" width="500" src="./assets/img/liverpool.jpg"></amp-img>
             <amp-selector role="tablist"
                           layout="container"
                           class="ampTabContainer">
@@ -313,6 +477,174 @@
                         layout="responsive"
                         src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDG9YXIhKBhqclZizcSzJ0ROiE0qgVfwzI&q=europe">
             </amp-iframe>
+
+            <div class="nearby-hotels">
+                <h4>Hotels Near Liverpool Hope University</h4>
+                <div class="hotel">
+                    <div class="description">
+                        <span class="ranking">1</span>
+                        <amp-img class="pic" layout="fixed" height="96" width="96" src="./assets/img/liverpool.jpg"></amp-img>
+
+                        <div class="info">
+                            <h5>Childwall Abbey by Marston's Inns</h5>
+                            <span class="stars">
+                                <span>
+                                      <amp-img class="pic" layout="fixed" height="16" width="16" src="./assets/img/star-on.png"></amp-img>
+                                </span>
+                                <span>
+                                      <amp-img class="pic" layout="fixed" height="16" width="16" src="./assets/img/star-on.png"></amp-img>
+                                </span>
+                                <span>
+                                      <amp-img class="pic" layout="fixed" height="16" width="16" src="./assets/img/star-on.png"></amp-img>
+                                </span>
+                                <span>
+                                      <amp-img class="pic" layout="fixed" height="16" width="16" src="./assets/img/star-off.png"></amp-img>
+                                </span>
+                                <span>
+                                      <amp-img class="pic" layout="fixed" height="16" width="16" src="./assets/img/star-off.png"></amp-img>
+                                </span>
+                                <span class="ranking-status">Very good</span>
+                                <span class="grade"> 8.1</span>
+                            </span>
+
+                            <span class="location">Childwall Abbey</span>
+                            <span class="distance">870 metters from Liverpool Hope University</span>
+                        </div>
+                    </div>
+                    <div class="offer">
+                        <amp-img layout="fixed" height="27" width="54" src="./assets/img/booking.png"></amp-img>
+                        <span class="price">
+                            <span class="currency">USD</span>
+                            <span class="value">80</span>
+                        </span>
+                        <span class="view">View <br />Deal</span>
+
+                    </div>
+                </div>
+                <div class="hotel">
+                    <div class="description">
+                        <span class="ranking">2</span>
+                        <amp-img class="pic" layout="fixed" height="96" width="96" src="./assets/img/liverpool.jpg"></amp-img>
+
+                        <div class="info">
+                            <h5>Childwall Abbey by Marston's Inns</h5>
+                            <span class="stars">
+                                <span>
+                                      <amp-img class="pic" layout="fixed" height="16" width="16" src="./assets/img/star-on.png"></amp-img>
+                                </span>
+                                <span>
+                                      <amp-img class="pic" layout="fixed" height="16" width="16" src="./assets/img/star-on.png"></amp-img>
+                                </span>
+                                <span>
+                                      <amp-img class="pic" layout="fixed" height="16" width="16" src="./assets/img/star-on.png"></amp-img>
+                                </span>
+                                <span>
+                                      <amp-img class="pic" layout="fixed" height="16" width="16" src="./assets/img/star-off.png"></amp-img>
+                                </span>
+                                <span>
+                                      <amp-img class="pic" layout="fixed" height="16" width="16" src="./assets/img/star-off.png"></amp-img>
+                                </span>
+                                <span class="ranking-status">Very good</span>
+                                <span class="grade"> 8.1</span>
+                            </span>
+
+                            <span class="location">Childwall Abbey</span>
+                            <span class="distance">870 metters from Liverpool Hope University</span>
+                        </div>
+                    </div>
+                    <div class="offer">
+                        <amp-img layout="fixed" height="27" width="54" src="./assets/img/booking.png"></amp-img>
+                        <span class="price">
+                            <span class="currency">USD</span>
+                            <span class="value">80</span>
+                        </span>
+                        <span class="view">View <br />Deal</span>
+
+                    </div>
+                </div>
+                <div class="hotel">
+                    <div class="description">
+                        <span class="ranking">3</span>
+                        <amp-img class="pic" layout="fixed" height="96" width="96" src="./assets/img/liverpool.jpg"></amp-img>
+
+                        <div class="info">
+                            <h5>Childwall Abbey by Marston's Inns</h5>
+                            <span class="stars">
+                                <span>
+                                      <amp-img class="pic" layout="fixed" height="16" width="16" src="./assets/img/star-on.png"></amp-img>
+                                </span>
+                                <span>
+                                      <amp-img class="pic" layout="fixed" height="16" width="16" src="./assets/img/star-on.png"></amp-img>
+                                </span>
+                                <span>
+                                      <amp-img class="pic" layout="fixed" height="16" width="16" src="./assets/img/star-on.png"></amp-img>
+                                </span>
+                                <span>
+                                      <amp-img class="pic" layout="fixed" height="16" width="16" src="./assets/img/star-off.png"></amp-img>
+                                </span>
+                                <span>
+                                      <amp-img class="pic" layout="fixed" height="16" width="16" src="./assets/img/star-off.png"></amp-img>
+                                </span>
+                                <span class="ranking-status">Very good</span>
+                                <span class="grade"> 8.1</span>
+                            </span>
+
+                            <span class="location">Childwall Abbey</span>
+                            <span class="distance">870 metters from Liverpool Hope University</span>
+                        </div>
+                    </div>
+                    <div class="offer">
+                        <amp-img layout="fixed" height="27" width="54" src="./assets/img/booking.png"></amp-img>
+                        <span class="price">
+                            <span class="currency">USD</span>
+                            <span class="value">50</span>
+                        </span>
+                        <span class="view">View <br />Deal</span>
+
+                    </div>
+                </div>
+                <div class="hotel">
+                    <div class="description">
+                        <span class="ranking">1</span>
+                        <amp-img class="pic" layout="fixed" height="96" width="96" src="./assets/img/liverpool.jpg"></amp-img>
+
+                        <div class="info">
+                            <h5>Childwall Abbey by Marston's Inns</h5>
+                            <span class="stars">
+                                <span>
+                                      <amp-img class="pic" layout="fixed" height="16" width="16" src="./assets/img/star-on.png"></amp-img>
+                                </span>
+                                <span>
+                                      <amp-img class="pic" layout="fixed" height="16" width="16" src="./assets/img/star-on.png"></amp-img>
+                                </span>
+                                <span>
+                                      <amp-img class="pic" layout="fixed" height="16" width="16" src="./assets/img/star-on.png"></amp-img>
+                                </span>
+                                <span>
+                                      <amp-img class="pic" layout="fixed" height="16" width="16" src="./assets/img/star-off.png"></amp-img>
+                                </span>
+                                <span>
+                                      <amp-img class="pic" layout="fixed" height="16" width="16" src="./assets/img/star-off.png"></amp-img>
+                                </span>
+                                <span class="ranking-status">Very good</span>
+                                <span class="grade"> 8.1</span>
+                            </span>
+
+                            <span class="location">Childwall Abbey</span>
+                            <span class="distance">870 metters from Liverpool Hope University</span>
+                        </div>
+                    </div>
+                    <div class="offer">
+                        <amp-img layout="fixed" height="27" width="54" src="./assets/img/booking.png"></amp-img>
+                        <span class="price">
+                            <span class="currency">USD</span>
+                            <span class="value">70</span>
+                        </span>
+                        <span class="view">View <br />Deal</span>
+
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </body>
