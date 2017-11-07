@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    html, body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+    }
+    #multi_markers {
+        width: 100%;
+        height: 100%;
+    }
+</style>
+<body>
+    <div id="multi_markers"></div>
+    <script>
+    function waitTillJqueryLoaded(method) {
+        if (window.jQuery)
+            method();
+        else
+            setTimeout(function() { waitTillJqueryLoaded(method) }, 50);
+    }
+
+    function initialize() {
+        waitTillJqueryLoaded(function () {
+            map = new google.maps.Map(document.getElementById('multi_markers'), {
+                center: {lat: 53.3908007, lng: -2.8944875},
+                zoom: 11
+            });
+
+            var markers = [];
+            var infowindows = [];
+
+            pos_hash = [{"lat":"53.3908007","lng":"-2.8922988","picture":{"url":"./assets/img/map/pin.png","width":48,"height":48},"infowindow":"\u003ca class='map_info_window_container' href='#' onclick='scrollToSelection(39305, \"poi_pr_\")'\u003e\n        \u003cdiv class='map_info_window'\u003e\n            \u003ch5\u003eLiverpool Hope University\u003c/h5\u003e\n        \u003c/div\u003e\n        \u003c/a\u003e","data":{"obj_id":39305}},{"lat":"53.3948712350587","lng":"-2.88109213113785","picture":{"url":"./assets/img/map/building.png","width":32,"height":32},"infowindow":"\u003ca class='map_info_window_container' href='#' onclick='scrollToSelection(559750, \"poi_pr_\")'\u003e\n        \u003cdiv class='map_info_window'\u003e\n            \u003ch5\u003eChildwall Abbey by Marston's Inns\u003c/h5\u003e\u003cp\u003e80 USD /\u003cspan class=\"user-rating\"\u003e \u003cspan class=\"text\"\u003eVery Good\u003c/span\u003e \u003cspan class=\"user-rating-score\"\u003e8.1\u003c/span\u003e\u003c/span\u003e\u003c/p\u003e\u003cimg src='//aff.bstatic.com/images/hotel/max500/228/22887196.jpg'\u003e\n        \u003c/div\u003e\n        \u003c/a\u003e","data":{"obj_id":559750}},{"lat":"53.3890864543327","lng":"-2.91532203566021","picture":{"url":"./assets/img/map/building.png","width":32,"height":32},"infowindow":"\u003ca class='map_info_window_container' href='#' onclick='scrollToSelection(559749, \"poi_pr_\")'\u003e\n        \u003cdiv class='map_info_window'\u003e\n            \u003ch5\u003ePenny Lane Hotel\u003c/h5\u003e\u003cp\u003e78 USD /\u003cspan class=\"user-rating\"\u003e \u003cspan class=\"text\"\u003eSuperb\u003c/span\u003e \u003cspan class=\"user-rating-score\"\u003e9.2\u003c/span\u003e\u003c/span\u003e\u003c/p\u003e\u003cimg src='//aff.bstatic.com/images/hotel/max500/228/22834117.jpg'\u003e\n        \u003c/div\u003e\n        \u003c/a\u003e","data":{"obj_id":559749}},{"lat":"53.3747716372234","lng":"-2.90129989385605","picture":{"url":"./assets/img/map/building.png","width":32,"height":32},"infowindow":"\u003ca class='map_info_window_container' href='#' onclick='scrollToSelection(559752, \"poi_pr_\")'\u003e\n        \u003cdiv class='map_info_window'\u003e\n            \u003ch5\u003eThe Avenue Bed and Breakfast\u003c/h5\u003e\u003cp\u003e94 USD /\u003cspan class=\"user-rating\"\u003e \u003cspan class=\"text\"\u003eExceptional\u003c/span\u003e \u003cspan class=\"user-rating-score\"\u003e9.5\u003c/span\u003e\u003c/span\u003e\u003c/p\u003e\u003cimg src=''\u003e\n        \u003c/div\u003e\n        \u003c/a\u003e","data":{"obj_id":559752}},{"lat":"53.3997026390832","lng":"-2.92586088180542","picture":{"url":"./assets/img/map/building.png","width":32,"height":32},"infowindow":"\u003ca class='map_info_window_container' href='#' onclick='scrollToSelection(559751, \"poi_pr_\")'\u003e\n        \u003cdiv class='map_info_window'\u003e\n            \u003ch5\u003eSnooze\u003c/h5\u003e\u003cp\u003e50 USD /\u003cspan class=\"user-rating\"\u003e \u003cspan class=\"text\"\u003eGood\u003c/span\u003e \u003cspan class=\"user-rating-score\"\u003e7.8\u003c/span\u003e\u003c/span\u003e\u003c/p\u003e\u003cimg src='//aff.bstatic.com/images/hotel/max500/333/3334411.jpg'\u003e\n        \u003c/div\u003e\n        \u003c/a\u003e","data":{"obj_id":559751}},{"lat":"53.3871805","lng":"-2.9043063","picture":{"url":"./assets/img/map/home.png","width":32,"height":32},"infowindow":"\u003ca class='map_info_window_container' href='#' onclick='scrollToSelection(559755, \"poi_pr_\")'\u003e\n        \u003cdiv class='map_info_window'\u003e\n            \u003ch5\u003eMenlove By Faiseur Limited 'Home From Home'\u003c/h5\u003e\u003cp\u003e109 USD /\u003cspan class=\"user-rating\"\u003e \u003cspan class=\"text\"\u003eGood\u003c/span\u003e \u003cspan class=\"user-rating-score\"\u003e7.3\u003c/span\u003e\u003c/span\u003e\u003c/p\u003e\u003cimg src='https://odis.homeaway.com/odis/listing/c441e5fc-db9b-4f06-924d-e4f5b9e55634.c10.jpg'\u003e\n        \u003c/div\u003e\n        \u003c/a\u003e","data":{"obj_id":559755}},{"lat":"53.38421417","lng":"-2.92560243","picture":{"url":"./assets/img/map/home.png","width":32,"height":32},"infowindow":"\u003ca class='map_info_window_container' href='#' onclick='scrollToSelection(559756, \"poi_pr_\")'\u003e\n        \u003cdiv class='map_info_window'\u003e\n            \u003ch5\u003eLarge 6 Bed Modern House Near City Centre- Sleeps 14!  \u003c/h5\u003e\u003cp\u003e114 USD /\u003cspan class=\"user-rating\"\u003e \u003cspan class=\"text\"\u003e\u003c/span\u003e \u003cspan class=\"user-rating-score\"\u003e6.9\u003c/span\u003e\u003c/span\u003e\u003c/p\u003e\u003cimg src='https://odis.homeaway.com/odis/listing/ff4e8417-61f0-4404-b4c3-39b74060999b.c10.jpg'\u003e\n        \u003c/div\u003e\n        \u003c/a\u003e","data":{"obj_id":559756}},{"lat":"53.39926026","lng":"-2.93283005","picture":{"url":"./assets/img/map/home.png","width":32,"height":32},"infowindow":"\u003ca class='map_info_window_container' href='#' onclick='scrollToSelection(559754, \"poi_pr_\")'\u003e\n        \u003cdiv class='map_info_window'\u003e\n            \u003ch5\u003eRathbone Townhouse- 8 bed close to city centre\u003c/h5\u003e\u003cp\u003e202 USD /\u003cspan class=\"user-rating\"\u003e \u003cspan class=\"text\"\u003eGood\u003c/span\u003e \u003cspan class=\"user-rating-score\"\u003e7.3\u003c/span\u003e\u003c/span\u003e\u003c/p\u003e\u003cimg src='https://odis.homeaway.com/odis/listing/029d1523-d4bf-4d61-b546-e0455c6f93ae.c10.jpg'\u003e\n        \u003c/div\u003e\n        \u003c/a\u003e","data":{"obj_id":559754}},{"lat":"53.39733458","lng":"-2.93463739","picture":{"url":"./assets/img/map/home.png","width":32,"height":32},"infowindow":"\u003ca class='map_info_window_container' href='#' onclick='scrollToSelection(559753, \"poi_pr_\")'\u003e\n        \u003cdiv class='map_info_window'\u003e\n            \u003ch5\u003eLovely 3BR House In Liverpool, Family Friendly, Close To City Cntr, Free Parking\u003c/h5\u003e\u003cp\u003e60 USD /\u003cspan class=\"user-rating\"\u003e \u003cspan class=\"text\"\u003eReview Score\u003c/span\u003e \u003cspan class=\"user-rating-score\"\u003e6.7\u003c/span\u003e\u003c/span\u003e\u003c/p\u003e\u003cimg src='https://odis.homeaway.com/odis/listing/037180eb-035c-4588-9f6a-381b71131021.c10.jpg'\u003e\n        \u003c/div\u003e\n        \u003c/a\u003e","data":{"obj_id":559753}}];
+
+            for (var i = 0; i <pos_hash.length; i++) {
+                (function(i) {
+                    var marker;
+                    var infowindow = new google.maps.InfoWindow({
+                        content: pos_hash[i].infowindow
+                    });
+                    marker = new google.maps.Marker({
+                        position: { lat: parseFloat(pos_hash[i].lat), lng: parseFloat(pos_hash[i].lng)},
+                        map: map,
+                        icon: pos_hash[i].picture.url
+                    });
+                    markers.push(marker);
+                    infowindows.push(infowindow);
+
+                    markers[i].addListener('click', function() {
+                        infowindows[i].open(map, markers[i]);
+                    });
+                }(i));
+
+            }
+
+        });
+    }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFzBCFFkvq6shv7yU8flVa0ZZ92eVRmBU&callback=initialize"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-marker-clusterer/1.0.0/markerclusterer.js"></script>
+    <script src='//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js' type='text/javascript'></script>
+</body>
+</html>
