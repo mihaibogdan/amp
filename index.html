@@ -28,9 +28,9 @@
     <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
 
     <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
     <script async custom-element="amp-selector" src="https://cdn.ampproject.org/v0/amp-selector-0.1.js"></script>
     <script async custom-element="amp-youtube" src="https://cdn.ampproject.org/v0/amp-youtube-0.1.js"></script>
-
     <style amp-custom>
 
         body {
@@ -393,6 +393,26 @@
 
 </head>
 <body>
+<amp-analytics type="googleanalytics">
+    <script type="application/json">
+        {
+            "vars": {
+                "account": "UA-69573253-1"
+            },
+            "triggers": {
+                "outboundLinks": {
+                    "on": "click",
+                    "selector": "a.hotel",
+                    "request": "event",
+                    "vars": {
+                        "eventCategory": "HotelCTA",
+                        "eventAction": "automix_listing"
+                    }
+                }
+            }
+        }
+    </script>
+</amp-analytics>
     <header>
         <div class="logo">
             <amp-img layout="fixed" height="33" width="120" src="./assets/img/logo.png"></amp-img>
@@ -414,6 +434,7 @@
                 <div role="tabpanel"
                      class="tabContent">
                     <h6>Search the best Holiday Homes & Rentals</h6>
+                    from
                     <div class="input-field">
                         <label for="destination">Destination:</label>
                         <input id="destination" type="text" placeholder="England, UK">
@@ -480,7 +501,7 @@
                     width="480" height="270"></amp-youtube>
             <div class="nearby-hotels">
                 <h4>Hotels Near Liverpool Hope University</h4>
-                <div class="hotel">
+                <a class="hotel" target="_blank" href="#" data-vars-hotel-title="Childwall Abbey by Marston's Inns">
                     <div class="description">
                         <span class="ranking">1</span>
                         <amp-img class="pic" layout="fixed" height="96" width="96" src="./assets/img/liverpool.jpg"></amp-img>
@@ -520,8 +541,8 @@
                         <span class="view">View <br />Deal</span>
 
                     </div>
-                </div>
-                <div class="hotel">
+                </a>
+                <a class="hotel" target="_blank" href="#">
                     <div class="description">
                         <span class="ranking">2</span>
                         <amp-img class="pic" layout="fixed" height="96" width="96" src="./assets/img/liverpool.jpg"></amp-img>
@@ -561,8 +582,8 @@
                         <span class="view">View <br />Deal</span>
 
                     </div>
-                </div>
-                <div class="hotel">
+                </a>
+                <a class="hotel" target="_blank" href="#">
                     <div class="description">
                         <span class="ranking">3</span>
                         <amp-img class="pic" layout="fixed" height="96" width="96" src="./assets/img/liverpool.jpg"></amp-img>
@@ -602,8 +623,8 @@
                         <span class="view">View <br />Deal</span>
 
                     </div>
-                </div>
-                <div class="hotel">
+                </a>
+                <a class="hotel" target="_blank" href="#">
                     <div class="description">
                         <span class="ranking">1</span>
                         <amp-img class="pic" layout="fixed" height="96" width="96" src="./assets/img/liverpool.jpg"></amp-img>
@@ -643,7 +664,7 @@
                         <span class="view">View <br />Deal</span>
 
                     </div>
-                </div>
+                </a>
             </div>
         </div>
     </div>
